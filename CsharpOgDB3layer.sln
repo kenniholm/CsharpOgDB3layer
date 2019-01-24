@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpOgDB3layer", "CsharpOgDB3layer\CsharpOgDB3layer.csproj", "{90BB3140-90AF-409D-9423-84B9C885B22C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{C957C689-25B5-4A3F-9FC0-C1AF73BD2055}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{90BB3140-90AF-409D-9423-84B9C885B22C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90BB3140-90AF-409D-9423-84B9C885B22C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90BB3140-90AF-409D-9423-84B9C885B22C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C957C689-25B5-4A3F-9FC0-C1AF73BD2055}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C957C689-25B5-4A3F-9FC0-C1AF73BD2055}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C957C689-25B5-4A3F-9FC0-C1AF73BD2055}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C957C689-25B5-4A3F-9FC0-C1AF73BD2055}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

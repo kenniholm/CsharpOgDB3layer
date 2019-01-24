@@ -1,0 +1,26 @@
+﻿<Window x:Class="GUI.ShowAllPetsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="ShowAllPetsWindow" Height="450" Width="800">
+    <Grid>
+        <Label  Content="Pet Information" HorizontalAlignment="Left" VerticalAlignment="Top" Height="58" Width="286" Margin="231,13,0,0" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <ListView Name="PetInformationView" HorizontalAlignment="Left" Height="280" VerticalAlignment="Top" Width="586" Margin="83,76,0,0" SelectionChanged="PetInformationView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Pet Name " DisplayMemberBinding="{Binding PetName}"/>
+                    <GridViewColumn Header="Pet Type " DisplayMemberBinding="{Binding PetType}"/>
+                    <GridViewColumn Header="Pet Breed " DisplayMemberBinding="{Binding PetBreed}"/>
+                    <GridViewColumn Header="Pet Date of Birth " DisplayMemberBinding="{Binding PetDOB}"/>
+                    <GridViewColumn Header="Pet Weight " DisplayMemberBinding="{Binding PetWeight}"/>
+                    <GridViewColumn Header="Owner ID " DisplayMemberBinding="{Binding OwnerID}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="689,303,0,0" VerticalAlignment="Top" Width="93" Height="53" Click="Cancel_Click"/>
+
+    </Grid>
+</Window>
