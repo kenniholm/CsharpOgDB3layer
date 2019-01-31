@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="Controller.cs" />
     <Compile Include="DBconnector.cs" />
+    <Compile Include="IPublisher.cs" />
+    <Compile Include="ISubscriber.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

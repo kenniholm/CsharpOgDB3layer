@@ -18,12 +18,14 @@ namespace GUI
     /// <summary>
     /// Interaction logic for ShowAllPetsWindow.xaml
     /// </summary>
-    public partial class ShowAllPetsWindow : Window
+    public partial class ShowAllPetsWindow : Window, ISubscriber
     {
-        Controller con = new Controller();
-        public ShowAllPetsWindow()
+        Controller con;
+        public ShowAllPetsWindow(Controller controller)
         {
             InitializeComponent();
+            con = controller;
+            con.RegisterSubscriber(this);
             BreakListDown();
         }
 
@@ -68,6 +70,20 @@ namespace GUI
             MainWindow main = new MainWindow();
             main.Show();
             this.Close();
+        }
+
+        public void Update(IPublisher publisher, string message)
+        {
+            string[] arr = message.Split(';');
+            this.PetInformationView.Items.Add(new Items
+            {
+                PetName = arr[0],
+                PetType = arr[1],
+                PetBreed = arr[2],
+                PetDOB = arr[3],
+                PetWeight = arr[4],
+                OwnerID = arr[5]
+            });
         }
     }
 }

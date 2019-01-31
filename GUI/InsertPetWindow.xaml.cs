@@ -20,10 +20,11 @@ namespace GUI
     /// </summary>
     public partial class InsertPetWindow : Window
     {
-        Controller con = new Controller();
-        public InsertPetWindow()
+        Controller con;
+        public InsertPetWindow(Controller controller)
         {
             InitializeComponent();
+            con = controller;
         }
 
         private void Send_Click(object sender, RoutedEventArgs e)

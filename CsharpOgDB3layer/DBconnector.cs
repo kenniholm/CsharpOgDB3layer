@@ -8,13 +8,15 @@ using System.Data;
 
 namespace CsharpOgDB3layer
 {
-    public class DBconnector
+    public class DBconnector : IPublisher, ISubscriber
     {
+        List<ISubscriber> subscribers = new List<ISubscriber>();
         private static string connectionString = "Server=EALSQL1.eal.local; Database= B_DB16_2018; User Id=B_STUDENT16; Password=B_OPENDB16;";
 
         public void InsertPet(string PetName, string PetType, string PetBreed, string PetDOB, string PetWeight, string OwnerID)
         {
             Dictionary<string, string> parameters = new Dictionary<string, string>();
+            string Data = $"{PetName};{PetType};{PetBreed};{PetDOB};{PetWeight};{OwnerID}";
 
             parameters["@PetName"] = PetName;
 
@@ -47,6 +49,7 @@ namespace CsharpOgDB3layer
                         }
                     }
                     insertPet.ExecuteNonQuery();
+                    NotifySubscribers(Data);
                 }
                 catch (SqlException e)
                 {
@@ -88,8 +91,32 @@ namespace CsharpOgDB3layer
                 {
                     throw new ArgumentException("Der gik noget galt" + e.Message);
                 }
+                return data;
             }
-            return data;
+            
+        }
+
+        public void RegisterSubscriber(ISubscriber observer)
+        {
+            subscribers.Add(observer);
+        }
+
+        public void RemoveSubscriber(ISubscriber observer)
+        {
+            subscribers.Remove(observer);
+        }
+
+        public void NotifySubscribers(string message)
+        {
+            foreach (ISubscriber sub in subscribers)
+            {
+                sub.Update(this, message);
+            }
+        }
+
+        public void Update(IPublisher publisher, string message)
+        {
+            NotifySubscribers(message);
         }
     }
 }
